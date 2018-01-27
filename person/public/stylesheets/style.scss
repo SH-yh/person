@@ -1,0 +1,8 @@
+.borderRadius50 {
+  border-radius: 50%;
+}
+.imageViaSize {
+  width:100px;
+  height:100px;
+  composes: borderRadius50;
+}
