@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 
-import Via from "../icon/via"
+import LeftApp from '../left/left';
+import RightApp from '../right/right';
+
+import style from '../../public/stylesheets/style.scss';
 
 class App extends Component {
     constructor(props){
@@ -8,8 +11,9 @@ class App extends Component {
     }
     render(){
         return (
-            <div>
-                <Via />
+            <div className={style.container}>
+                <LeftApp />
+                <RightApp/>
             </div>
         )
     }

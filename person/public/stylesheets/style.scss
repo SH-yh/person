@@ -2,7 +2,163 @@
   border-radius: 50%;
 }
 .imageViaSize {
-  width:100px;
-  height:100px;
+  max-width:200px;
+  max-height:200px;
   composes: borderRadius50;
+}
+.displayBlock {
+  display: block;
+}
+.displayInlineBlock {
+  display: inline-block;
+}
+.displayFlex {
+  display: flex;
+}
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+.flex8 {
+  flex:8;
+}
+.flex2 {
+  flex:2;
+}
+.flex1 {
+  flex:1;
+}
+.flexJustifyCenter{
+  justify-content: center;
+}
+.flexAlignItemsCenter {
+  align-items: center;
+}
+.containerWidth {
+  max-width:1280px;
+}
+.marginAuto {
+  margin:0 auto;
+}
+.marginBT20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.paddingBT20{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.paddingLR20{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.paddingL20{
+  padding-left: 20px;
+}
+.paddingBT10{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.paddingB10 {
+  padding-bottom: 10px;
+}
+.backgroundGray {
+  background: #EFEFEF;
+}
+.center {
+  text-align: center;
+}
+.fontColor {
+  color: #333;
+}
+.fontSize24 {
+  font-size: 24px;
+}
+.fontSize16 {
+  font-size: 16px;
+}
+.fontSize14 {
+  font-size: 14px;
+}
+.borderB {
+  border-bottom: 1px solid #BEBEBE;
+}
+.gps:before {
+  display: inline-block;
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  background:url("../images/gps.png") no-repeat;
+  background-size: 100% 100%;
+}
+.container {
+  composes:displayFlex;
+  composes: containerWidth;
+  composes: marginAuto;
+}
+.viaSelf {
+  composes:flexColumn;
+  composes: flexAlignItemsCenter;
+  composes: fontColor;
+}
+.aboutItem {
+  composes: flex1;
+  composes:flexColumn;
+  composes: flexAlignItemsCenter;
+  composes: fontColor;
+  composes: paddingBT10;
+  border-top: 1px solid #BEBEBE;
+  border-right: 1px solid #BEBEBE;
+}
+.aboutItem:last-child {
+  border-right-width: 0;
+}
+.contactTitle {
+  composes: paddingBT20;
+  composes: paddingLR20;
+  composes: backgroundGray;
+  font-weight: 700;
+  color: #333;
+}
+@mixin icon {
+  display: inline-block;
+  content: "";
+  width:32px;
+  height:32px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.contactTitle:before {
+  @include icon;
+  background:url("../../public/images/contact.png") no-repeat;
+
+}
+.contactItem {
+  composes: paddingBT10;
+  border-bottom: 1px solid #EFEFEF;
+}
+.mobile:before{
+  @include icon;
+  background:url("../../public/images/mobile.png") no-repeat;
+}
+.qq:before{
+  @include icon;
+  background:url("../../public/images/qq.png") no-repeat;
+}
+.weChat:before{
+  @include icon;
+  background:url("../../public/images/weChat.png") no-repeat;
+}
+.email:before{
+  @include icon;
+  background:url("../../public/images/email.png") no-repeat;
+}
+.github:before{
+  @include icon;
+  background:url("../../public/images/github.png") no-repeat;
 }

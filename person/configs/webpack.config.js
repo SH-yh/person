@@ -34,7 +34,7 @@ module.exports = {
             {
                 test: /\.scss$/g,
                 use:['style-loader', 'css-loader?modules', 'sass-loader']
-            }
+            },
         ]
     },
     devtool:"inline-source-map",

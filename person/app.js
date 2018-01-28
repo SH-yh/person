@@ -11,7 +11,7 @@ ReactDOM.render(
 if (module.hot) {
    module.hot.accept(()=> {
        ReactDOM.render(
-           <Via />,
+           <App />,
            document.getElementById('person')
        );
    })
