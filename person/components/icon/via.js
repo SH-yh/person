@@ -1,7 +1,8 @@
 const path = require('path');
 import React, {Component} from 'react';
 
-import ViaMsg from './viaMsg';
+import connectEditable from '../public/contentEditable';
+import Msg from '../public/msg';
 import AboutItem from './aboutItem';
 
 import style from '../../public/stylesheets/style.scss';
@@ -34,6 +35,8 @@ class Via extends Component {
         }
     }
     render(){
+        const ViaMsg = connectEditable(Msg);
+        const ItemMsg = connectEditable(AboutItem);
         return(
             <div className={ `${style.backgroundGray} ${style.borderB} person-via` }>
                 <div className={`${style.center} ${style.paddingBT20}`}>
@@ -48,7 +51,7 @@ class Via extends Component {
                             for(let key in item){
                                 let className = key === 'name' ? style.fontSize24 : style.fontSize16;
                                 className += key === "address" ? " "+ style.gps : "";
-                                return <ViaMsg key={key} cn = {`${className} ${style.paddingB10}`} item={item[key]}/>
+                                return <ViaMsg key={key}  cn = {`${className} ${style.paddingBT5}`} item={item[key]}/>
                             }
                         })
                     }
@@ -56,7 +59,7 @@ class Via extends Component {
                 <div className={`${style.flexRow} person-via-about`}>
                     {
                         this.state.AboutItem.map((item)=>{
-                            return <AboutItem key={item.key} cn={style.aboutItem} item={item}/>
+                            return <ItemMsg key={item.key} cn={style.aboutItem} item={item}/>
                         })
                     }
                 </div>
@@ -69,7 +72,8 @@ Via.defaultProps = {
     selfAbout: [
             {name: "郝洁"},
             {work: "前端工程师"},
-            {address: "邢台，中国"}
+            {address: "邢台，中国"},
+            {major: "专业：计算机科学与技术"}
         ],
     AboutItem: [
         {
@@ -84,7 +88,8 @@ Via.defaultProps = {
             key: "学校",
             value: "河北大学"
         },
-    ]
+    ],
+
 };
 
 export default Via;

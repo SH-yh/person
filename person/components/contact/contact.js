@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
-import Item from './item';
+import Msg from '../public/msg';
+import ContentEditeable from '../public/contentEditable';
 
 import style from '../../public/stylesheets/style.scss'
 
@@ -13,13 +14,14 @@ class Contact extends Component {
         }
     }
     render(){
+        const Item = ContentEditeable(Msg);
         return(
             <div className="contact">
-                <Item cn = {style.contactTitle} title={this.state.title}/>
-                <div class="contact-way">
+                <h4 className={style.contactTitle}>{this.state.title}</h4>
+                <div className="contact-way">
                     {
                         this.state.contactWay.map((item)=>{
-                            return <Item key={item.key} cn = {`${style[item.key]} ${style.contactItem} ${style.paddingL20}`} title = {item.value}/>
+                            return <Item key={item.key}  cn = {`${style[item.key]} ${style.contactItem} ${style.paddingL20}`} item = {item.value}/>
                         })
                     }
                 </div>

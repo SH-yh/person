@@ -1,3 +1,4 @@
+@import "reset.scss";
 .borderRadius50 {
   border-radius: 50%;
 }
@@ -52,6 +53,14 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.paddingBT15{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.paddingBT5{
+   padding-top: 5px;
+   padding-bottom: 5px;
+ }
 .paddingLR20{
   padding-left: 20px;
   padding-right: 20px;
@@ -112,6 +121,7 @@
   composes: flexAlignItemsCenter;
   composes: fontColor;
   composes: paddingBT10;
+  line-height: 1.5;
   border-top: 1px solid #BEBEBE;
   border-right: 1px solid #BEBEBE;
 }
@@ -119,7 +129,7 @@
   border-right-width: 0;
 }
 .contactTitle {
-  composes: paddingBT20;
+  composes: paddingBT15;
   composes: paddingLR20;
   composes: backgroundGray;
   font-weight: 700;
