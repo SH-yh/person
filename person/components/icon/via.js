@@ -38,28 +38,28 @@ class Via extends Component {
         const ViaMsg = connectEditable(Msg);
         const ItemMsg = connectEditable(AboutItem);
         return(
-            <div className={ `${style.backgroundGray} ${style.borderB} person-via` }>
-                <div className={`${style.center} ${style.paddingBT20}`}>
+            <div className={ `${style["background-gray"]}  person-via` }>
+                <div className={`${style.center} ${style["padding-bt20"]}`}>
                     <label htmlFor="viaUpload">
-                        <img className= {style.imageViaSize}  src={this.state.viaSrc}/>
+                        <img className= {style["image-viaSize"]}  src={this.state.viaSrc}/>
                         <input  id = "viaUpload" style={{display:"none"}} type="file" onChange={this.handleViaSrcChange}/>
                     </label>
                 </div>
-                <div className={`${style.viaSelf} `} >
+                <div className={`${style["via-self"]} `} >
                     {
                         this.state.selfAbout.map((item)=>{
                             for(let key in item){
-                                let className = key === 'name' ? style.fontSize24 : style.fontSize16;
+                                let className = key === 'name' ? style["font-size24"] : style["font-size16"];
                                 className += key === "address" ? " "+ style.gps : "";
-                                return <ViaMsg key={key}  cn = {`${className} ${style.paddingBT5}`} item={item[key]}/>
+                                return <ViaMsg key={key}  cn = {`${className} ${style["padding-bt5"]}`} item={item[key]}/>
                             }
                         })
                     }
                 </div>
-                <div className={`${style.flexRow} person-via-about`}>
+                <div className={`${style["flex-row"]} person-via-about`}>
                     {
                         this.state.AboutItem.map((item)=>{
-                            return <ItemMsg key={item.key} cn={style.aboutItem} item={item}/>
+                            return <ItemMsg key={item.key} cn={style["about-item"]} item={item}/>
                         })
                     }
                 </div>
