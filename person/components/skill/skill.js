@@ -11,6 +11,19 @@ class Skill extends Component {
             skills: this.props.skills
         };
         this.handleAddItem = this.handleAddItem.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
+    }
+    handleBlur(newNum,title){
+        const skills = this.state.skills;
+        const newSkills = skills.map((item)=>{
+            if(item.skill == title){
+                item.num = newNum;
+            }
+            return item;
+        });
+        this.setState({
+            skills: newSkills
+        });
     }
     handleAddItem(){
         const skills = this.state.skills;
@@ -25,14 +38,14 @@ class Skill extends Component {
     render(){
         const Skill = ConnectEditable(SkillItem);
         return (
-            <React.Fragment>
+            <div>
                 <Title handleAddItem={this.handleAddItem} title={this.props.title}/>
                 {
                     this.state.skills.map((item, index)=>{
-                        return <Skill key={index} title = {item}/>
+                        return <Skill handleBlur={this.handleBlur} key={index} title = {item.skill} num = {item.num}/>
                     })
                 }
-            </React.Fragment>
+            </div>
 
         )
     }
@@ -40,8 +53,8 @@ class Skill extends Component {
 Skill.defaultProps = {
     title: "个人技能",
     skills: [
-        'Javascript',
-        'Css'
+        {'skill':'Javascript','num': 80},
+        {'skill':'Css','num': 60},
     ]
 };
 export default Skill;

@@ -3,9 +3,13 @@ import React, {Component} from 'react';
 
 const defaultStyle = {
     wrap: {
+        'boxSizing': 'border-box',
         'display': 'flex',
         'flexDirection': 'row',
         'justifyContent':'space-between',
+        'alignItems':'center',
+        'background':'#EFEFEF',
+        'padding':'10px 20px',
     },
     btn: {
         'display':'block',
@@ -14,7 +18,8 @@ const defaultStyle = {
         'lineHeight':'25px',
         'textAlign': 'center',
         'borderRadius': '50%',
-        'background': '#EFEFEF',
+        'background': '#333',
+        'color': '#EFEFEF',
         'fontWeight': '700',
         'cursor': 'pointer'
     }

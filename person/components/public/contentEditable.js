@@ -5,11 +5,8 @@ const connectEditable = (WrappedComponent) => {
         constructor(props){
             super(props);
             this.handleEditable = this.handleEditable.bind(this);
-            this.onBlur = this.onBlur.bind(this);
         }
-        handleBlur(){
-            console.log(1);
-        }
+
         handleEditable(e){
             const target = e.target;
             target.contentEditable = true;
@@ -22,7 +19,7 @@ const connectEditable = (WrappedComponent) => {
             }
         }
         render(){
-            return <WrappedComponent onBlur = {this.handleBlur}  handleDoubleClick = {this.handleEditable} {...this.props} />;
+            return <WrappedComponent  handleDoubleClick = {this.handleEditable} {...this.props} />;
         }
     }
 };
