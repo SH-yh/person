@@ -12,28 +12,37 @@ class Skill extends Component {
         };
         this.handleAddItem = this.handleAddItem.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
-    handleBlur(newNum,title){
-        const skills = this.state.skills;
-        const newSkills = skills.map((item)=>{
-            if(item.skill == title){
-                item.num = newNum;
-            }
-            return item;
-        });
+    handleBlur(index,newSkill){
+        const skills = this.state.skills[index];
+        for(let key in newSkill){
+            skills[key] = newSkill[key];
+        }
         this.setState({
-            skills: newSkills
+            skills: this.state.skills
         });
     }
     handleAddItem(){
         const skills = this.state.skills;
         const skillsLength = skills.length;
         const item = skills[skillsLength - 1];
-        skills.push(item);
+        const obj = {};
+        for(let key in item){
+            obj[key] = item[key];
+        }
+        skills.push(obj);
         this.setState({
             skills: skills
         });
 
+    }
+    handleDelete(index){
+        const skills = this.state.skills;
+        skills.splice(index, 1);
+        this.setState({
+            skills: skills
+        });
     }
     render(){
         const Skill = ConnectEditable(SkillItem);
@@ -42,7 +51,7 @@ class Skill extends Component {
                 <Title handleAddItem={this.handleAddItem} title={this.props.title}/>
                 {
                     this.state.skills.map((item, index)=>{
-                        return <Skill handleBlur={this.handleBlur} key={index} title = {item.skill} num = {item.num}/>
+                        return <Skill handleDelete = {this.handleDelete} handleBlur={this.handleBlur} key={index} dataId={index} title = {item.skill} num = {item.num}/>
                     })
                 }
             </div>

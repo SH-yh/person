@@ -9,6 +9,15 @@ class App extends Component {
     constructor(props){
         super(props);
     }
+    componentDidMount(){
+        document.oncontextmenu = (e)=>{
+            if(e.returnValue){
+                e.returnValue = false
+            }else{
+                return false;
+            }
+        }
+    }
     render(){
         return (
             <div className={style.container}>
