@@ -33,7 +33,6 @@ class Title extends Component {
         this.props.handleAddItem()
     }
     render(){
-        const items = this.props.items;
         return(
             <div style={defaultStyle.wrap}>
                 <h4>{this.props.title}</h4>

@@ -17,6 +17,7 @@ class SkillItem extends Component{
         const index = this.props.dataId;
         const id = e.target.id;
         const title = this.props.title;
+        e.target.contentEditable = false;
         if(id == "num"){
             const num = e.target.innerHTML.split('%')[0];
             const newNum = parseInt(num);
@@ -44,7 +45,7 @@ class SkillItem extends Component{
                 }
             );
         }
-        e.preventDefault();
+        //e.preventDefault();
     }
     handleDelete(index){
         this.props.handleDelete(index);
