@@ -65,16 +65,20 @@ class ProjectItem extends Component {
                 'position': 'relative'
             }
         };
+        const title = security(this.props.title);
+        const content = security(this.props.content);
         return(
             <div onMouseDown={this.handleRightKey} style={defaultStyle.container}>
                 <div>
-                    <h4 onBlur={this.handleBlur} id="title" onDoubleClick={this.props.handleDoubleClick} style={defaultStyle.title}>{this.props.title}</h4>
-                    <p onBlur={this.handleBlur} id="content" onDoubleClick={this.props.handleDoubleClick} style={defaultStyle.content}>{this.props.content}</p>
+                    <h4 onBlur={this.handleBlur} id="title" onDoubleClick={this.props.handleDoubleClick} style={defaultStyle.title} dangerouslySetInnerHTML={{__html:title}}></h4>
+                    <p onBlur={this.handleBlur} id="content" onDoubleClick={this.props.handleDoubleClick} style={defaultStyle.content} dangerouslySetInnerHTML={{__html:content}}></p>
                 </div>
                 {this.state.mark && <DeleteCancel index={this.props.dataId} delete={this.handleDelete} cancel= {this.handleCancel}/>}
             </div>
         );
     }
 }
-
+const security = (str) => {
+    return str.replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--');
+};
 export default ProjectItem;

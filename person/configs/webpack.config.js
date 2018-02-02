@@ -27,9 +27,14 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                        'file-loader'
-                ]
+                use: {
+                    'loader': 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]',
+                    'options':{
+                        publicPath:'/'
+                    }
+                },
+
+
             },
             {
                 test: /\.scss$/,
